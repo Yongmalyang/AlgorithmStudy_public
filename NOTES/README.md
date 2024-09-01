@@ -1,4 +1,4 @@
-/*
+# AlgorithmStudy
 
 1. int / int를 float로 표현하기
 float div = static_cast<float>(a) / b;
@@ -17,4 +17,3 @@ float div = static_cast<float>(a) / b;
 
  vector<int> a;
  sort(a.begin(), a.end());
-*/
