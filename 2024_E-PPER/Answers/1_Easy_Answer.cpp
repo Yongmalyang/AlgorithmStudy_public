@@ -29,30 +29,38 @@
 
 using namespace std;
 
+// 솔루션 함수
 int solution(vector<int>& times) {
     // 오름차순 정렬
     sort(times.begin(), times.end());
 
+    // 정답 변수
     int answer = 0;
-    int prev = 0; // 누적값 저장
+    // 누적값 저장 변수
+    int prev = 0; 
 
+    // for문: 누적값에 t 더하기, 정답에 누적값 더하기
     for (int t : times) {
         prev += t;
         answer += prev;
     }
 
+    // return 정답
     return answer;
 }
 
 int main() {
+    // n 입력 받기
     int n;
-    cin >> n; // 정수 입력
+    cin >> n;
+    // times 변수 길이 n으로 초기화 (사람들이 대기하는 시간)
     vector<int> times(n);
-
+    // times 원소 입력 받기
     for (int i = 0; i < n; ++i) {
         cin >> times[i]; // 시간 입력
     }
 
+    // solution 함수 호출, 결과 출력
     cout << solution(times) << '\n';
 
     return 0;
