@@ -1,20 +1,3 @@
-/*
-문제
-임한수와 임문빈은 서로 사랑하는 사이이다.
-
-임한수는 세상에서 팰린드롬인 문자열을 너무 좋아하기 때문에, 둘의 백일을 기념해서 임문빈은 팰린드롬을 선물해주려고 한다.
-
-임문빈은 임한수의 영어 이름으로 팰린드롬을 만들려고 하는데, 임한수의 영어 이름의 알파벳 순서를 적절히 바꿔서 팰린드롬을 만들려고 한다.
-
-임문빈을 도와 임한수의 영어 이름을 팰린드롬으로 바꾸는 프로그램을 작성하시오.
-
-입력
-첫째 줄에 임한수의 영어 이름이 있다. 알파벳 대문자로만 된 최대 50글자이다.
-
-출력
-첫째 줄에 문제의 정답을 출력한다. 만약 불가능할 때는 "I'm Sorry Hansoo"를 출력한다. 정답이 여러 개일 경우에는 사전순으로 앞서는 것을 출력한다.
-*/
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,20 +6,24 @@ using namespace std;
 
 const int SIZE = 26;    // 알파벳의 수
 
+// 알파벳 개수 세는 함수! 
 vector<int> countAlphabet(string text) {
-	// text에 있는 각 알파벳의 개수를 세어 리턴하는 함수
-	vector<int> count(SIZE, 0); // A-Z까지 문자의 개수를 저장할 리스트
+	// 반환할 벡터. a-z까지 개수 저장
+	vector<int> count(SIZE, 0);
+	// 길이만큼 돌기
 	for (int i = 0; i < text.size(); i++) {
-		// 각 문자를 인덱스로 바꿔주기 위해 'A'의 인덱스를 빼줌
+		// text[i]-'A' 해줘야함
 		count[text[i] - 'A']++;
 	}
 	return count;
 }
 
+// 팰린드롬 만들어 리턴해주는 함수!
 string makePalindrome(vector<int>& count) {
-	// 팰린드롬을 만들어 리턴하는 함수.
+	// 앞부분 가운데부분 뒷부분으로 나누기. string 3개 만들기
 	string part1 = "", part2 = "", part3 = "";
 
+	// 알파벳 길이만큼 순회
 	for (int i = 0; i < SIZE; i++) {
 		// 만약 알파벳의 수가 홀수라면
 		if (count[i] % 2 == 1) {
@@ -49,11 +36,13 @@ string makePalindrome(vector<int>& count) {
 		}
 		// 남은 수의 절반을 나누어 part1과 part3에 이어 붙인다
 		for (int j = 0; j < count[i] / 2; j++) {
+			// part1은 뒤에다 이어붙이기
 			part1 += (char)(i + 'A');
+			// part3는 앞에다 이어붙이기
 			part3 = (char)(i + 'A') + part3;
 		}
 	}
-
+	// 합친거 리턴
 	return part1 + part2 + part3;
 }
 
