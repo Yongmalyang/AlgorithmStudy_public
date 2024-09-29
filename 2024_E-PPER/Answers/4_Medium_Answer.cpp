@@ -61,12 +61,13 @@ int solution(vector<string> friends, vector<string> gifts) {
         }
     }
     
-    //
+    // total 중에서 최대 gift 찾기
     int max_gift = total_gift[0];
     for (int i = 1; i < total_gift.size(); ++i) {
         if (total_gift[i] > max_gift) {
             max_gift = total_gift[i];
         }
     }
+    // 최댓값 반환
     return max_gift;
 }
