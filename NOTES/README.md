@@ -56,3 +56,8 @@ bool cmp(int a, int b) {
     else
         return false;
 }
+
+map<string, int>
+map이 존재하는지 안하는지 알고싶다면..
+map.find("어쩌구키값") == map.end()로 확인!! 
+=> find에서 존재하지 않을 시 map의 맨 끝 접근자를 반환한다.
