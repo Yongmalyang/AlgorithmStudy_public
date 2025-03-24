@@ -14,31 +14,31 @@ answer = round(answer*1000) / 1000;
 cout << fixed << setprecision(3) << answer;
  
 
- 정렬
+3. 정렬
  #include <algorithm>
  #include <vector>
 
  vector<int> a;
  sort(a.begin(), a.end());
 
-int: 10자리 정도
+4. int: 10자리 정도
 float: 소수 위아래 합쳐서 6~7자리
 double: 소수 위아래 합쳐서 15~16자리
 
-내림차순 tip: 음수를 붙이고 오름차순 정렬을 한다..
+5. 내림차순 tip: 음수를 붙이고 오름차순 정렬을 한다..
 
-#include <tuple>
+6. #include <tuple>
 vector<tuple<int, int, int> > tup;
 tup.push_back(make_tuple(a, b, c)); 
 이런식으로 써먹기
 tuple을 sort하면 맨앞 원소(a)에 대해 정렬된다.
 
-tuple의 tie 기능. 
+7. tuple의 tie 기능. 
 tuple의 a, b를 따로 x, y에 써먹고 싶다면
 tie(x, y, ignore) = tup[i]; 
 이런 식으로 가능
 
-set
+8. set
 multiset
 사용하려면 #include <set>
 set: 정렬상태 자동으로 유지해줌, index로는 접근 불가능, 중복 불가
@@ -47,7 +47,7 @@ multiset: 정렬상태 자동으로 유지해줌, index로는 접근 불가능, 
 int a = ms.begin()   (X)
 int a = *ms.begin()  (O)
 
-sort(arr, arr+n, cmp);
+9. sort(arr, arr+n, cmp);
 이런 식으로 cmp함수를 추가해주면 cmp에 조건을 달아 내림차순 정렬을 만들 수 있음.
 다음과 같이 작성한다: 
 bool cmp(int a, int b) {
@@ -57,7 +57,9 @@ bool cmp(int a, int b) {
         return false;
 }
 
-map<string, int>
+10. map<string, int>
 map이 존재하는지 안하는지 알고싶다면..
 map.find("어쩌구키값") == map.end()로 확인!! 
 => find에서 존재하지 않을 시 map의 맨 끝 접근자를 반환한다.
+
+11. cin 숫자 자릿수로 받는 법??
