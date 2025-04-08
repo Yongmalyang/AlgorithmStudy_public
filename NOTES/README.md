@@ -57,9 +57,20 @@ bool cmp(int a, int b) {
         return false;
 }
 
+
 10. map<string, int>
 map이 존재하는지 안하는지 알고싶다면..
 map.find("어쩌구키값") == map.end()로 확인!! 
 => find에서 존재하지 않을 시 map의 맨 끝 접근자를 반환한다.
 
 11. cin 숫자 자릿수로 받는 법??
+
+12. 개구린 입력... 받기
+
+string line;
+for (int i = 0; i < n; i++) {
+    cin >> line;
+    for (int j = 0; j < m; j++) {
+        grid[i][j] = line[j] - '0';
+    }
+}
